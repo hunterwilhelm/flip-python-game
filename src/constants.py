@@ -1,0 +1,10 @@
+SCREEN_WIDTH = 12 * 64
+SCREEN_HEIGHT = 12 * 64
+SCREEN_TITLE = "Flip Game"
+# scaling
+CHARACTER_SCALING = 1
+# Movement speed of player, in pixels per frame
+PLAYER_MOVEMENT_SPEED = 5
+GRAVITY = .5
+PLAYER_JUMP_SPEED = 9
+TILE_SCALING = 1

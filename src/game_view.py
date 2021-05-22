@@ -1,28 +1,9 @@
-"""
-Starting Template
-
-Once you have learned how to use classes, you can begin your program with this
-template.
-
-If Python and Arcade are installed, this example can be run from the command line with:
-python -m arcade.examples.starting_template
-"""
 import arcade
 
-SCREEN_WIDTH = 12 * 64
-SCREEN_HEIGHT = 12 * 64
-SCREEN_TITLE = "Flip Game"
-
-# scaling
-CHARACTER_SCALING = 1
-# Movement speed of player, in pixels per frame
-PLAYER_MOVEMENT_SPEED = 5
-GRAVITY = .5
-PLAYER_JUMP_SPEED = 10
-TILE_SCALING = 1
+from src.constants import TILE_SCALING, CHARACTER_SCALING, GRAVITY, PLAYER_JUMP_SPEED, PLAYER_MOVEMENT_SPEED
 
 
-class MyGame(arcade.Window):
+class GameView(arcade.View):
     """
     Main application class.
 
@@ -31,12 +12,13 @@ class MyGame(arcade.Window):
     with your own code. Don't leave 'pass' in this program.
     """
 
-    def __init__(self, width, height, title):
-        super().__init__(width, height, title)
+    def __init__(self):
+        super().__init__()
 
         arcade.set_background_color(arcade.color.WHITE)
 
         self.wall_list = None
+        self.coin_list = None
         self.player_list = None
         self.ladder_list = None
 
@@ -70,6 +52,12 @@ class MyGame(arcade.Window):
                                                       scaling=TILE_SCALING,
                                                       use_spatial_hash=True)
 
+        coins_layer_name = 'Coins'
+        self.coin_list = arcade.tilemap.process_layer(map_object=my_map,
+                                                      layer_name=coins_layer_name,
+                                                      scaling=TILE_SCALING,
+                                                      use_spatial_hash=True)
+
         # Create your sprites and sprite lists here
         image_source = "assets/sprites/monster_owlet/Owlet_Monster.png"
         self.player_sprite = arcade.Sprite(image_source, CHARACTER_SCALING)
@@ -94,6 +82,7 @@ class MyGame(arcade.Window):
 
         self.player_list.draw()
         self.wall_list.draw()
+        self.coin_list.draw()
 
     def on_update(self, delta_time):
         """ Movement and game logic """
@@ -148,14 +137,3 @@ class MyGame(arcade.Window):
         Called when a user releases a mouse button.
         """
         pass
-
-
-def main():
-    """ Main method """
-    game = MyGame(SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_TITLE)
-    game.setup()
-    arcade.run()
-
-
-if __name__ == "__main__":
-    main()
