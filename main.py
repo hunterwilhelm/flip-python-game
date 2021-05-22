@@ -9,8 +9,8 @@ python -m arcade.examples.starting_template
 """
 import arcade
 
-SCREEN_WIDTH = 800
-SCREEN_HEIGHT = 600
+SCREEN_WIDTH = 12 * 64
+SCREEN_HEIGHT = 12 * 64
 SCREEN_TITLE = "Flip Game"
 
 # scaling
@@ -49,22 +49,32 @@ class MyGame(arcade.Window):
         self.up_pressed = False
         self.down_pressed = False
 
-
         # Our 'physics' engine
         self.physics_engine = None
-
 
     def setup(self):
         """ Set up the game variables. Call to re-start the game. """
         # Create the Sprite lists
         self.player_list = arcade.SpriteList()
-        self.wall_list = arcade.SpriteList(use_spatial_hash=True)
+
+        # --- Load in a map from the tiled editor ---
+
+        # Name of map file to load
+        map_name = "assets/maps/map.tmx"
+        # map_name = ":resources:tmx_maps/map.tmx"
+        my_map = arcade.tilemap.read_tmx(map_name)
+        # Name of the layer in the file that has our platforms/walls
+        platforms_layer_name = 'Platforms'
+        self.wall_list = arcade.tilemap.process_layer(map_object=my_map,
+                                                      layer_name=platforms_layer_name,
+                                                      scaling=TILE_SCALING,
+                                                      use_spatial_hash=True)
 
         # Create your sprites and sprite lists here
-        image_source = "assets/sprites/Owlet_Monster/Owlet_Monster.png"
+        image_source = "assets/sprites/monster_owlet/Owlet_Monster.png"
         self.player_sprite = arcade.Sprite(image_source, CHARACTER_SCALING)
-        self.player_sprite.center_x = 64
-        self.player_sprite.center_y = 128
+        self.player_sprite.center_x = 100
+        self.player_sprite.center_y = 1000
         self.player_list.append(self.player_sprite)
 
         # Create the physics engine
@@ -73,14 +83,6 @@ class MyGame(arcade.Window):
                                                              self.wall_list,
                                                              gravity_constant=GRAVITY,
                                                              ladders=self.ladder_list)
-
-        # Create the ground
-        # This shows using a loop to place multiple sprites horizontally
-        for x in range(0, 1250, 64):
-            wall = arcade.Sprite("assets/sprites/Blocks/block.png", TILE_SCALING)
-            wall.center_x = x
-            wall.center_y = 32
-            self.wall_list.append(wall)
 
     def on_draw(self):
         """
@@ -128,7 +130,6 @@ class MyGame(arcade.Window):
             self.left_pressed = False
         elif key == arcade.key.RIGHT:
             self.right_pressed = False
-
 
     def on_mouse_motion(self, x, y, delta_x, delta_y):
         """
