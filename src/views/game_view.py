@@ -1,7 +1,7 @@
 import arcade
 
 from src.constants import *
-from src.flip_animation_view import FlipAnimationView
+from src.views.flip_animation_view import FlipAnimationView
 from src.player import Player
 from src.utils import bezier
 

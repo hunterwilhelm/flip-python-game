@@ -1,8 +1,8 @@
 import arcade
 
 from src.constants import SCREEN_WIDTH, SCREEN_HEIGHT
-from src.flip_animation_view import FlipAnimationView
-from src.game_view import GameView
+from src.views.flip_animation_view import FlipAnimationView
+from src.views.game_view import GameView
 
 
 class InstructionView(arcade.View):
