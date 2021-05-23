@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.5" tiledversion="1.6.0" orientation="orthogonal" renderorder="right-down" width="12" height="12" tilewidth="64" tileheight="64" infinite="0" nextlayerid="6" nextobjectid="1">
+ <tileset firstgid="1" source="tiles/black.tsx"/>
+ <tileset firstgid="2" source="tiles/door.tsx"/>
+ <tileset firstgid="3" source="tiles/white.tsx"/>
+ <layer id="1" name="Blocks" width="12" height="12">
+  <data encoding="base64" compression="zlib">
+   eJxjYKAPYIZiUtUTqw9dPSF9zGhsXPrQxZkYGA7gsgsbJlX9UMMAOVoCjQ==
+  </data>
+ </layer>
+ <layer id="4" name="Background" width="12" height="12">
+  <data encoding="base64" compression="zlib">
+   eJxjZGA4wEgHzAAFpKonVh+6ekL6kOXw6cNl7iiAAADp5Si3
+  </data>
+ </layer>
+ <layer id="2" name="Doors" width="12" height="12">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo4B8AAACQAAB
+  </data>
+ </layer>
+</map>

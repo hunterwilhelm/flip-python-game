@@ -1,6 +1,7 @@
 import arcade
 
 from src.constants import SCREEN_WIDTH, SCREEN_HEIGHT
+from src.flip_animation_view import FlipAnimationView
 from src.game_view import GameView
 
 
@@ -22,11 +23,17 @@ class InstructionView(arcade.View):
                          arcade.color.WHITE, font_size=50, anchor_x="center")
         arcade.draw_text("Goal: get to the green", SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 - 75,
                          arcade.color.WHITE, font_size=20, anchor_x="center")
-        arcade.draw_text("How: Flip using shift. Move using WASD or arrow keys", SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 - 120,
+        arcade.draw_text("Tip: Flip using shift.", SCREEN_WIDTH / 2,
+                         SCREEN_HEIGHT / 2 - 120,
                          arcade.color.WHITE, font_size=20, anchor_x="center")
+        arcade.draw_text("To continue, press shift.", SCREEN_WIDTH / 2,
+                         SCREEN_HEIGHT / 2 - 175,
+                         arcade.color.WHITE, font_size=30, anchor_x="center")
 
-    def on_mouse_press(self, _x, _y, _button, _modifiers):
+    def on_key_press(self, symbol: int, modifiers: int):
         """ If the user presses the mouse button, start the game. """
-        game_view = GameView()
-        game_view.setup()
-        self.window.show_view(game_view)
+        if modifiers & arcade.key.MOD_SHIFT:
+            game_view = GameView()
+            game_view.setup()
+            flip_view = FlipAnimationView(arcade.csscolor.BLACK, game_view)
+            self.window.show_view(flip_view)
