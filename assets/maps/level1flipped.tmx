@@ -1,21 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.5" tiledversion="1.6.0" orientation="orthogonal" renderorder="right-down" width="12" height="12" tilewidth="64" tileheight="64" infinite="0" nextlayerid="6" nextobjectid="1">
+<map version="1.5" tiledversion="1.6.0" orientation="orthogonal" renderorder="right-down" width="14" height="14" tilewidth="64" tileheight="64" infinite="0" nextlayerid="6" nextobjectid="1">
  <tileset firstgid="1" source="tiles/black.tsx"/>
  <tileset firstgid="2" source="tiles/door.tsx"/>
  <tileset firstgid="3" source="tiles/white.tsx"/>
- <layer id="1" name="Blocks" width="12" height="12">
+ <tileset firstgid="4" source="tiles/border.tsx"/>
+ <layer id="1" name="Blocks" width="14" height="14">
   <data encoding="base64" compression="zlib">
-   eJxjYKAPYIZiUtUTqw9dPSF9zGhsXPrQxZkYGA7gsgsbJlX9UMMAOVoCjQ==
+   eJxjYWBgYCETkwqopY8ZisnVR0g/IX249GPTh88MdH3o8kwMDAdw2c1MA32E8FDTRw4GAGXQA10=
   </data>
  </layer>
- <layer id="4" name="Background" width="12" height="12">
+ <layer id="4" name="Background" width="14" height="14">
   <data encoding="base64" compression="zlib">
-   eJxjZGA4wEgHzAAFpKonVh+6ekL6kOXw6cNl7iiAAADp5Si3
+   eJxjYCAfMDIwHCAFU0sfsebg0kdIPyF9uPRj04fPDELmjwL6AwDduCi3
   </data>
  </layer>
- <layer id="2" name="Doors" width="12" height="12">
+ <layer id="2" name="Doors" width="14" height="14">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo4B8AAACQAAB
+   eJxjYBgFo2AUwAAAAxAAAQ==
   </data>
  </layer>
 </map>

@@ -6,17 +6,17 @@
  <tileset firstgid="4" source="tiles/border.tsx"/>
  <layer id="1" name="Blocks" width="14" height="14">
   <data encoding="base64" compression="zlib">
-   eJxjYWBQYCEdOwAxyWBUH359jFCMDSDLwdjo+vDpJ0YfLv3E6kPXT6o+dEyhvgfkYACEeBIn
+   eJxjYWBIYCEPkwxYoJhcfYwkYnLso4c+mPtopQ9ZHS304VNHS30kxjtZ6RoAjg8LiQ==
   </data>
  </layer>
  <layer id="4" name="Background" width="14" height="14">
   <data encoding="base64" compression="zlib">
-   eJxjYCAfMDMwHCAFDyd92OQp1YdPP7IcufFCRJRi1U+sPnT9pOobDAAAGvdDCQ==
+   eJxjYKAMMJOAqaFvKLiRWLW00ocuTm19+NTRUh89AADKjwED
   </data>
  </layer>
  <layer id="2" name="Doors" width="14" height="14">
   <data encoding="base64" compression="zlib">
-   eJxjYBgF5AAmOusbBfQBAAoAAAU=
+   eJxjYCAfMNFZ3ygYBbQGAA3wAAU=
   </data>
  </layer>
 </map>
