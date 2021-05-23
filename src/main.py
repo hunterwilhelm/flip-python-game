@@ -1,16 +1,22 @@
 """
-Starting Template
+Python Flip Game
 
-Once you have learned how to use classes, you can begin your program with this
-template.
+Hunter Wilhelm
 
-If Python and Arcade are installed, this example can be run from the command line with:
-python -m arcade.examples.starting_template
+
+Artwork in the game from:
+https://craftpix.net/file-licenses/
+
+Paying my dues:
+This was inspired by the SHIFT game
+SHIFT was developed and published by Armor Games
+Anthony Lavelle created the concept, design, and did the programming
+Full credits in the game on Armor Games here: https://armorgames.com/play/751/shift
 """
 import arcade
 
 from src.constants import SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_TITLE
-from src.instruction_view import InstructionView
+from src.views.instruction_view import InstructionView
 
 
 

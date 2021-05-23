@@ -4,6 +4,7 @@ from src.constants import *
 from src.views.flip_animation_view import FlipAnimationView
 from src.player import Player
 from src.utils import bezier
+from src.views.win_view import WinView
 
 
 class GameView(arcade.View):
@@ -49,6 +50,10 @@ class GameView(arcade.View):
         self.physics_engine = None
 
         # Level files
+        self.level_starting_position = [
+            (3 * BLOCK_SIZE / 2, VIEW_HEIGHT / 2 + BLOCK_SIZE * 2),
+            (3 * BLOCK_SIZE / 2, VIEW_HEIGHT / 2),
+        ]
         self.level_maps = [
             "assets/maps/level1.tmx",
             "assets/maps/level2.tmx",
@@ -68,8 +73,8 @@ class GameView(arcade.View):
         # Create your sprites and sprite lists
         image_source = "assets/sprites/monster_owlet/Owlet_Monster.png"
         self.player_sprite = Player(image_source, CHARACTER_SCALING)
-        self.player_sprite.center_x = 100
-        self.player_sprite.center_y = VIEW_HEIGHT / 2
+        self.player_sprite.center_x = self.level_starting_position[self.level][0]
+        self.player_sprite.center_y = self.level_starting_position[self.level][1]
         self.player_list.append(self.player_sprite)
 
         # Name of map file to load
@@ -162,7 +167,7 @@ class GameView(arcade.View):
         if self.controls_disabled:
             return
 
-        if key == arcade.key.UP or key == arcade.key.W:
+        if key == arcade.key.UP or key == arcade.key.W or key == arcade.key.SPACE:
             self.up_pressed = True
         elif key == arcade.key.DOWN or key == arcade.key.S:
             self.down_pressed = True
@@ -178,7 +183,7 @@ class GameView(arcade.View):
     def on_key_release(self, key, modifiers):
         """Called when the user releases a key. """
 
-        if key == arcade.key.UP or key == arcade.key.W:
+        if key == arcade.key.UP or key == arcade.key.W or key == arcade.key.SPACE:
             self.up_pressed = False
         elif key == arcade.key.DOWN or key == arcade.key.S:
             self.down_pressed = False
@@ -266,3 +271,8 @@ class GameView(arcade.View):
         self.level += 1
         if self.level < MAX_LEVEL:
             self.update_map_platform(self.level_maps[self.level])
+            self.player_sprite.center_x = self.level_starting_position[self.level][0]
+            self.player_sprite.center_y = self.level_starting_position[self.level][1]
+        else:
+            view = WinView()
+            self.window.show_view(view)
