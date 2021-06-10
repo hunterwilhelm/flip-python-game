@@ -17,7 +17,7 @@ I have seldom worked on games, so I wanted to add the Python Arcade library to m
 
 # Development Environment
 
-I used PyCharm to build this assignment.
+I used PyCharm.
 
 # Helpful Websites
 
