@@ -1,7 +1,7 @@
 import arcade
 from arcade import Texture, Color
 
-from src.constants import SCREEN_WIDTH, SCREEN_HEIGHT, WINDOW_FLIP_ANIMATION_DURATION
+from src.constants import SCREEN_WIDTH, SCREEN_HEIGHT, WINDOW_FLIP_ANIMATION_DURATION, WINDOW_FLIP_ANIMATION_SCALE
 from src.utils import bezier
 
 
@@ -32,7 +32,7 @@ class FlipAnimationView(arcade.View):
         arcade.start_render()
         arcade.set_background_color(self.background_color)
         if self.show_animation:
-            self.my_texture.draw_scaled(self.middleX, self.middleY, angle=self.angle)
+            self.my_texture.draw_scaled(self.middleX, self.middleY, angle=self.angle, scale=WINDOW_FLIP_ANIMATION_SCALE)
 
     def on_update(self, delta_time: float):
         if self.load_animation:
